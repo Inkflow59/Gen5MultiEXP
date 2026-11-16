@@ -33,5 +33,3 @@ already patched ROM). Copy your save next to the patched ROM with the same base 
 To rebuild the patches from the ROMs placed in the repository root: `python tools/build_patches.py`.
 Run the tests with `python -m pytest -q` (tests that need a ROM are skipped when it is missing).
 See `docs/TESTING.md` for the manual emulator checklist.
-
-See `docs/superpowers/specs/` for the design and `docs/superpowers/plans/` for the plan.
