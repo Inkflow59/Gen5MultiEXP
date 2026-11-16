@@ -1,0 +1,15 @@
+[project]
+name = "gen5multiexp"
+version = "0.1.0"
+description = "Gen 6/7 style Multi EXP patch for Pokemon Black/White (Gen 5)"
+requires-python = ">=3.11"
+dependencies = ["ndspy", "capstone", "keystone-engine", "unicorn"]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "tools"]
+testpaths = ["tests"]
+# Unicorn (QEMU) raises a handled first-chance access violation on Windows that faulthandler would print.
+addopts = "-p no:faulthandler"

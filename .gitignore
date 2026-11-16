@@ -1,0 +1,7 @@
+*.nds
+work/
+__pycache__/
+.pytest_cache/
+.superpowers/
+*.ml1
+patches/
