@@ -86,3 +86,11 @@ already patched ROM). Copy your save next to the patched ROM with the same base 
 To rebuild the patches from the ROMs placed in the repository root: `python tools/build_patches.py`.
 Run the tests with `python -m pytest -q` (tests that need a ROM are skipped when it is missing).
 See `docs/TESTING.md` for the manual emulator checklist.
+
+## If the patch does not work on a ROM listed as compatible
+
+A ROM marked as compatible can still fail to patch (different dump, header or revision, modified file, tool quirk). If that happens, do not give up. Try one of these instead:
+
+- **Create the patch yourself** from your own ROM, with the tools in this repository.
+- **Build the patched ROM directly** instead of applying a patch file.
+- **Modify the code** to adapt it to your ROM.
