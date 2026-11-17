@@ -8,7 +8,7 @@
 @ r4, r6, r7 are free. Execution falls through to the code that follows the region.
 @
 @ Behaviour: every alive participant gets share = max(1, E / aliveParticipants), exactly as the unpatched game does
-@ without Exp. Share. Every other alive party member below level 100 gets max(1, share / 2).
+@ without Exp. Share. Every other alive party member below level 100 gets the same share (100% EXP for the whole team).
 @ The existing code after the region applies level scaling, Lucky Egg and EVs to each non zero entry.
 
     ldr   r0, [sp, #8]
@@ -101,10 +101,6 @@ not_participant:
     cmp   r0, #0x64
     bcs   next_member
     ldr   r0, [sp, #{s_share}]
-    lsrs  r0, r0, #1
-    bne   store_half
-    movs  r0, #1
-store_half:
     str   r0, [r5, r6]
 next_member:
     ldr   r0, [sp, #{s_i}]

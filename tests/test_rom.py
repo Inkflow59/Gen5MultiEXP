@@ -35,8 +35,10 @@ def test_identify_rejects_wrong_size(tmp_path):
 
 def test_known_roms_cover_the_eight_games_with_distinct_slugs():
     assert sorted(rom.KNOWN_ROMS) == sorted(
-        ["IRBF", "IRAF", "IREF", "IRDF", "IRBO", "IRAO", "IREO", "IRDO"])
-    assert len({s.slug for s in rom.KNOWN_ROMS.values()}) == 8
+        ["IRBF", "IRAF", "IREF", "IRDF", "IRBO", "IRAO", "IREO", "IRDO",
+         "IRBS", "IRBI", "IRAI", "IREI", "IRDI", "IRDS", "IRDD", "IRES", "IRBD", "IRED", "IRAD", "IRAS",
+         "IRBJ", "IRAJ", "IREJ", "IRDJ", "IRBK", "IRAK", "IREK", "IRDK"])
+    assert len({s.slug for s in rom.KNOWN_ROMS.values()}) == 28
 
 
 @pytest.mark.skipif(not REAL_ROM.exists(), reason="clean ROM not present")

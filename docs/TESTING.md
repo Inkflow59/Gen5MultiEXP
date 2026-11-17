@@ -19,14 +19,14 @@ The patched overlay is recompressed and written back into its original slot, so 
 ## Checklist
 
 1. Wild battle with a 3+ member party, only the first member fights: every living member gains EXP. The fighter gets the same
-   amount as in the unpatched game, the others about half (before the level scaling the game applies to each Pokémon).
+   amount as in the unpatched game, the others the same amount (before the level scaling the game applies to each Pokémon).
 2. Trainer battle: same behaviour, with the usual 1.5x trainer bonus.
 3. A fainted party member gains nothing and no message appears for it.
 4. A level 100 party member gains nothing.
 5. A benched Pokémon close to its next level levels up from shared EXP: level-up message, stat screen, new move prompt.
 6. A benched Pokémon that reaches its evolution level evolves normally after the battle.
 7. Party of a single Pokémon: behaves exactly like the unpatched game.
-8. Double battle: both fighters are paid once, the others get half.
+8. Double battle: both fighters are paid once, the others get the same share.
 9. Lucky Egg on a benched Pokémon gives it the boosted message; a held Exp. Share does nothing special.
 10. EVs: benched Pokémon also receive the EVs of the defeated Pokémon (see "Known behaviour").
 
@@ -35,5 +35,5 @@ The patched overlay is recompressed and written back into its original slot, so 
 - A held Exp. Share has no extra effect: every living party member already shares EXP.
 - Non-participants also earn EVs, because the game's existing per-recipient code applies EVs to every recipient.
 - Benched Pokémon still go through the Gen 5 level scaling, so a higher-level Pokémon earns less than a lower-level one from the
-  same battle. This is intended (the 50% applies before the scaling).
+  same battle. This is intended (the scaling is applied per Pokémon).
 - The ROM keeps its size, but DSi-mode signature checks of a real console are not satisfied; use an emulator or a flashcart in DS mode.

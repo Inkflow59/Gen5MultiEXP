@@ -75,9 +75,9 @@ def test_one_participant_gets_the_unpatched_amount(L):
     assert out[0] == 300
 
 
-def test_non_participants_get_half_of_a_participant_share(L):
+def test_non_participants_get_a_full_participant_share(L):
     out = run_calc(L, [(50, 30), (50, 30), (50, 30)], participants=[0, 1], exp=300)
-    assert out[:3] == [150, 150, 75]
+    assert out[:3] == [150, 150, 150]
     assert out[3:] == [0, 0, 0]
 
 
@@ -89,12 +89,12 @@ def test_fainted_non_participant_earns_nothing_and_fainted_participant_is_not_co
     out = run_calc(L, [(50, 30), (0, 30), (50, 30)], participants=[0, 1], exp=300)
     assert out[0] == 300          # only one alive participant, so the full share
     assert out[1] == 0            # fainted participant
-    assert out[2] == 150          # alive non participant
+    assert out[2] == 300          # alive non participant gets the full share
 
 
 def test_level_100_member_earns_nothing(L):
     out = run_calc(L, [(50, 30), (50, 100), (50, 30)], participants=[0], exp=300)
-    assert out[1] == 0 and out[2] == 150
+    assert out[1] == 0 and out[2] == 300
 
 
 def test_tiny_exp_gives_at_least_one_point_to_each_recipient(L):
@@ -104,7 +104,7 @@ def test_tiny_exp_gives_at_least_one_point_to_each_recipient(L):
 
 def test_no_alive_participant_does_not_crash_and_still_shares(L):
     out = run_calc(L, [(0, 30), (50, 30), (50, 30)], participants=[0], exp=100)
-    assert out[0] == 0 and out[1] == 50 and out[2] == 50
+    assert out[0] == 0 and out[1] == 100 and out[2] == 100
 
 
 def test_slots_beyond_the_party_size_are_untouched(L):
@@ -115,4 +115,4 @@ def test_slots_beyond_the_party_size_are_untouched(L):
 def test_each_recipient_has_one_entry_with_nonzero_exp(L):
     out = run_calc(L, [(50, 30)] * 6, participants=[0, 1, 2], exp=600)
     assert sum(1 for v in out if v) == 6
-    assert out == [200, 200, 200, 100, 100, 100]
+    assert out == [200] * 6
