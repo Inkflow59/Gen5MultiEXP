@@ -1,4 +1,4 @@
-# Gen5MultiEXP
+# Gen 5 Multi EXP
 
 A patch that brings the always-on "Exp. Share" of Gen 6/7 to Pokemon Black/White and Black 2/White 2 (Gen 5).
 Every living party member earns EXP: participants as usual, the others the same amount, i.e. 100% EXP for the
